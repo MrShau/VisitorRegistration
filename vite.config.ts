@@ -56,17 +56,4 @@ export default defineConfig({
 			'@': fileURLToPath(new URL('./src', import.meta.url)),
 		},
 	},
-	server: {
-		proxy: {
-			'^/weatherforecast': {
-				target,
-				secure: false,
-			},
-		},
-		port: parseInt(env.DEV_SERVER_PORT || '58743'),
-		https: {
-			key: fs.readFileSync(keyFilePath),
-			cert: fs.readFileSync(certFilePath),
-		},
-	},
 })
